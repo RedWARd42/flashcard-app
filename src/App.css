@@ -1,0 +1,111 @@
+* {
+  font-family: Helvetica, sans-serif;
+}
+
+.title {
+  display: flex;
+  justify-self: center;
+  margin-bottom: 0;
+}
+
+.flashcard {
+  margin: 1em;
+  background-color: transparent;
+  width: 400px;
+  height: 200px;
+  perspective: 1500px; /* Remove this if you don't want the 3D effect */
+}
+
+.flashcard-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flashcard-content.flipped{
+  transform: rotatex(180deg);
+}
+
+/* Position the front and back side */
+.front, .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.back {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.front {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: rgb(231, 231, 231);
+  color: black;
+  transform: rotatex(180deg);
+}
+
+.card-display, .whole-set {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-display {
+  height: 50vh;
+  min-height: 350px;
+}
+
+.whole-set {
+  flex-wrap: wrap;
+}
+
+.card-interact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+button {
+  font-size: 2em;
+  border-radius: 10px;
+}
+
+.easy {
+  background-color: rgb(180, 240, 180);
+}
+
+.medium {
+  background-color: rgb(255, 255, 192);
+}
+
+.difficult {
+  background-color: rgb(255, 172, 172);
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
