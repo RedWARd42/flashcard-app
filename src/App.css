@@ -2,10 +2,18 @@
   font-family: Helvetica, sans-serif;
 }
 
+html {
+  background-color: rgb(200, 171, 171);
+}
+
 .title {
   display: flex;
   justify-self: center;
   margin-bottom: 0;
+}
+
+h2 {
+  margin: .25em 0;
 }
 
 .flashcard {
@@ -52,7 +60,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: rgb(231, 231, 231);
+  background-color: #ffffff;
   color: black;
   transform: rotatex(180deg);
 }
@@ -65,7 +73,6 @@
 }
 
 .card-display {
-  height: 50vh;
   min-height: 350px;
 }
 
@@ -89,8 +96,16 @@
 }
 
 button {
-  font-size: 2em;
   border-radius: 10px;
+}
+
+.position-btn {
+  font-size: 2em;
+}
+
+.change-buttons button{
+  margin: .5em;
+  font-size: 1.5em;
 }
 
 .easy {
@@ -108,4 +123,34 @@ button {
 img {
   width: 100px;
   height: auto;
+}
+
+input {
+  font-size: 1em;
+  display: flex;
+  justify-self: center;
+  margin-bottom: .5em;
+  border: 2px solid black;
+}
+
+.guess-answer {
+  display: flex;
+  align-items: center;
+}
+
+.guess-answer input {
+  margin-top: .5em;
+}
+
+.change-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.correct {
+  border-color: green;
+}
+
+.wrong {
+  border-color: red;
 }
