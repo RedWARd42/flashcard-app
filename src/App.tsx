@@ -1,8 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 import Card from './components/Card.tsx';
+import { generateFlashcards } from './api/generateFlashcards';
 
-const flashcardInfo = [
+const placeholderCards = [
     { title: "Capital of France", info: "Paris", difficulty: "easy", image: "https://tse1.mm.bing.net/th/id/OIP.EjrmUWRbGe5dBlE-vlyHkwHaE8?r=0&rs=1&pid=ImgDetMain&cb=idpwebpc2"},
     { title: "Color of the sky on a clear day", info: "Blue", difficulty: "easy", image: ""},
     { title: "How many legs does a spider have?", info: "8", difficulty: "easy", image: "https://th.bing.com/th/id/R.be320e432b179e8783c4d0477a2a45fe?rik=cfHPriHgd0GG0A&riu=http%3a%2f%2fi.stack.imgur.com%2fiJQl9.jpg&ehk=jwTyJqY6w8HCKdRKmpNQezjEoJ2Z85OGix1Fjh76h28%3d&risl=&pid=ImgRaw&r=0"},
@@ -18,9 +19,14 @@ const flashcardInfo = [
 ];
 
 function App() {
+
+  const [flashcardInfo, setFlashcardInfo] = useState([...placeholderCards]);
+
   const [displayDeck, setDisplayDeck] = useState([...flashcardInfo]);
 
   const [index, setIndex] = useState(0);
+
+  const [topic, setTopic] = useState("");
 
   const handlePrev = () => {
     if(index > 0) {
@@ -50,6 +56,25 @@ function App() {
     setIndex(randomPos);
     setFeedback("");
     setGuess("");
+  };
+
+  const handleGenerate = async () => {
+    if (!topic.trim()) return;
+
+
+    try {
+      const newCards = await generateFlashcards(topic);
+
+
+      setFlashcardInfo(newCards);
+      setDisplayDeck([...newCards]);
+      setIndex(0);
+      setFeedback("");
+      setGuess("");
+    } catch (err) {
+      console.error("Flashcard generation failed:", err);
+      alert("Failed to generate flashcards. Please try again.");
+    }
   };
 
 
@@ -140,8 +165,13 @@ function App() {
 
   return (
     <div>
-      <h1 className='title'>Trivia Flashcards</h1>
-      <p className='title'>These are common trivia questions ranging in difficulty from easy to hard. Goodluck studying!</p>
+      <h1 className='title'>AI Flashcards</h1>
+      <p className='title'>Enter information about any topic and it will produce flashcards automatically for you. Please specify the amount of cards.</p>
+      <div className="generate-section">
+        <h2>Enter Flashcard Information</h2>
+        <textarea placeholder="Enter a topic to generate flashcards..." value={topic} onChange={(e) => setTopic(e.target.value)}/>
+        <button onClick={handleGenerate}>Generate Flashcards</button>
+      </div>
       <div className='card-display'>
         <h2>Set Size: {flashcardInfo.length}</h2>
         <h3>Current Card: #{index + 1}</h3>

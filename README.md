@@ -1,58 +1,49 @@
-# Web Development Project 3 - _Trivia Flashcards_
+## How to set up
 
-Submitted by: **Ryan Edward**
+open a new terminal
 
-This web app: **Trivia Flashcards**
+install the dependancies using "npm install"
 
-Time spent: **3** hours spent in total
+get a gemini api key and add to your .env file as VITE_API_KEY
 
-## Required Features
+open a local development server using the command "npm run dev"
 
-The following **required** functionality is completed:
+open the link
 
-- [x] **The user can enter their guess into an input box _before_ seeing the flipside of the card**
-  - Application features a clearly labeled input box with a submit button where users can type in a guess
-  - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong
-  - Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
-- [x] **The user can navigate through an ordered list of cardss**
-  - A forward/next button displayed on the card navigates to the next card in a set sequence when clicked
-  - A previous/back button displayed on the card returns to the previous card in the set sequence when clicked
-  - Both the next and back buttons should have some visual indication that the user is at the beginning or end of the list (for example, graying out and no longer being available to click), not allowing for wrap-around navigation
+## Features
 
-The following **optional** features are implemented:
+The following features are implemented:
 
-- [x] Users can use a shuffle button to randomize the order of the cards
-  - Cards should remain in the same sequence (**NOT** randomized) unless the shuffle button is clicked
-  - Cards should change to a random sequence once the shuffle button is clicked
-- [x] A user’s answer may be counted as correct even when it is slightly different from the target answer
-  - Answers are considered correct even if they only partially match the answer on the card
-  - Examples: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies, matching only for a particular part of the answer rather than the whole answer
-- [ ] A counter displays the user’s current and longest streak of correct responses
-  - The current counter increments when a user guesses an answer correctly
-  - The current counter resets to 0 when a user guesses an answer incorrectly
-  - A separate counter tracks the longest streak, updating if the value of the current streak counter exceeds the value of the longest streak counter
-- [ ] A user can mark a card that they have mastered and have it removed from the pool of displayed cards
-  - The user can mark a card to indicate that it has been mastered
-  - Mastered cards are removed from the pool of displayed cards and added to a list of mastered cards
+The user can shuffle flashcards, changing order
 
-The following **additional** features are implemented:
+the user can randomize the card, keeping order
 
-- [x] Jaro-Wilkner Function!
+the user can enter information about a new cardset, and generate new flashcards based on information
+
+the user can guess the answer for the flashcard
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='src\assets\secondIteration.gif' title='Video gif' width='' alt='Video Walkthrough' />
+<img src='src\assets\thirdIteration.gif' title='Video gif' width='' alt='Video Walkthrough' />
 
 GIF created with ...  
 [ScreenToGif](https://www.screentogif.com/) for Windows
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The guessing button is not working
 
-Creating the check for input
+There is a little lagginess
+
+I need to create a loading animation with the flashcards and generating flashcards
+
+The links for the images after generating does not work
+
+I need to create a better frontend
+
+I want to implement a database for storing sets
 
 ## License
 
