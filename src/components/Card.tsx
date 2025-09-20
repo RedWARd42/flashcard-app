@@ -19,10 +19,10 @@ function Card({ title, info, difficulty, image }: CardProps){
         <div className='flashcard' onClick={handleClick}>
             <div className={`flashcard-content ${flip? "flipped" : ""}`}>
                 <div className={`back ${difficulty}`}>
-                    <h2>{title}</h2>
+                    <h3>{title}</h3>
                 </div>
                 <div className='front'>
-                    <h3>{info}</h3>
+                    <h4>{info}</h4>
                     <img src={image}/>
                 </div>
             </div>

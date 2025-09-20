@@ -24,8 +24,8 @@ Rules and Guidelines:
 2. The number of flashcards should scale with content density — generate more cards if there are many key points.
 3. If the user specifies a number of cards, return exactly that many. Otherwise, use your best judgment.
 4. Assign a difficulty level ("easy", "medium", or "difficult") based on how familiar or complex the concept is. create the order based on difficulty.
-5. Keep flashcard text clear, concise, and suitable for quick learning.
-6. If applicable, include an image URL to visually support the concept. If not, use an empty string "".
+5. Keep flashcard text clear, concise(<=10 words for title, <=20 words for info), and suitable for quick learning.
+6. If applicable, include an image URL to visually support the concept. If not, make it null.
 
 Required Output Format:
 Return only a valid JSON array. Each flashcard must follow this exact format:

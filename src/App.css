@@ -1,6 +1,5 @@
 html {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(255, 207, 200);
+  padding: 1em;
 }
 
 .title {
@@ -52,7 +51,6 @@ h2 {
 /* Style the front side (fallback if image is missing) */
 .back {
   background-color: #bbb;
-  color: black;
 }
 
 /* Style the back side */
@@ -61,8 +59,11 @@ h2 {
   flex-wrap: wrap;
   flex-direction: column;
   background-color: #ffffff;
-  color: black;
   transform: rotatex(180deg);
+}
+
+.front h4, .back h3 {
+  color: rgb(19, 22.5, 30.5);
 }
 
 .card-display, .whole-set {
@@ -158,6 +159,14 @@ img {
   vertical-align: top;
 }
 
+.correct {
+  border-color: green;
+}
+
+.wrong {
+  border-color: red;
+}
+
 .guess-answer input{
   font-size: 1em;
   display: flex;
@@ -172,18 +181,16 @@ img {
 }
 
 .guess-answer input {
+  margin-top: 1em;
+  margin-right: 1em;
+}
+
+.guess-answer h3 {
   margin-top: .5em;
+  margin-right: .5em;
 }
 
 .change-buttons {
   display: flex;
   justify-content: center;
-}
-
-.correct {
-  border-color: green;
-}
-
-.wrong {
-  border-color: red;
 }

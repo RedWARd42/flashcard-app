@@ -1,4 +1,5 @@
 import './App.css';
+import '@picocss/pico'
 import { useState } from 'react';
 import Card from './components/Card.tsx';
 import { generateFlashcards } from './api/generateFlashcards';
@@ -182,7 +183,7 @@ function App() {
         </div>
         <div className='actions'>
           <div className='guess-answer'>
-            <h3>Guess the answer: </h3>
+            <h3>Guess: </h3>
             <input type="text" value={guess} onChange={(event) => setGuess(event.target.value)} className={feedback} placeholder='Enter your answer...'/>
             <button onClick={handleGuess}>Check</button>
           </div>
@@ -196,7 +197,7 @@ function App() {
         <h2>Entire Set</h2>
         <div className='card-container'>
           {flashcardInfo.map((card, i) => (
-            <Card key={i} title={card.title} info={card.info} difficulty={card.difficulty} image={card.image}/>
+            <Card key={i} title={card.title} info={card.info} difficulty={card.difficulty} image={card?.image}/>
           ))}
         </div>
       </div>
